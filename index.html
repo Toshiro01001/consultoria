@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <title>Alqueire Consultoria | Diagnóstico, processos, finanças e crescimento para pequenas e médias empresas (demonstração)</title>
+  <meta name="description" content="Site de demonstração de uma consultoria fictícia de negócios: diagnóstico rápido com radar, calculadora de ponto de equilíbrio e margem, casos de cliente antes e depois e agendamento de conversa. Feito pela Mil e Uma Linhas!">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <p class="faixa-demo">
+    Demonstração da <a href="https://mileumalinhas.com.br" rel="noopener">Mil e Uma Linhas!</a> com dados fictícios. Nenhum serviço é contratado aqui.
+  </p>
+
+  <header class="topo">
+    <div class="miolo topo-linha">
+      <a class="marca" href="#inicio">
+        <svg class="marca-icone" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="3" y="3" width="26" height="26" rx="3" /><path d="M8 22 L13 15 L17 19 L24 10" /><path d="M8 26h16" /></svg>
+        <span class="marca-texto">
+          <span class="marca-nome">Alqueire Consultoria</span>
+          <span class="marca-sub">Negócios medidos · fictício</span>
+        </span>
+      </a>
+      <button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu">
+        <span class="menu-botao-linhas" aria-hidden="true"></span>
+        <span class="menu-botao-rotulo">Menu</span>
+      </button>
+      <nav id="menu" class="menu" aria-label="Seções do site">
+        <a href="#frentes">Como trabalhamos</a>
+        <a href="#diagnostico">Diagnóstico</a>
+        <a href="#calculadora">Calculadora</a>
+        <a href="#casos">Casos</a>
+        <a href="#conversa" class="menu-destaque">Marcar conversa</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section id="inicio" class="hero escuro" aria-labelledby="hero-titulo">
+      <div class="miolo hero-grade">
+        <div class="hero-texto">
+          <p class="hero-kicker">Consultoria para pequenas e médias empresas, em Cuiabá</p>
+          <h1 id="hero-titulo" class="hero-titulo">Primeiro a <span class="grifo">medida</span>. Depois o passo.</h1>
+          <p class="hero-apoio">Somos a Alqueire. Ajudamos empresas de 5 a 200 pessoas a enxergar os próprios números, arrumar o que trava o dia a dia e crescer sem apostar no escuro.</p>
+          <div class="hero-acoes">
+            <a class="botao botao-claro" href="#diagnostico">Fazer o diagnóstico rápido</a>
+            <a class="botao botao-contorno-claro" href="#conversa">Marcar uma conversa</a>
+          </div>
+          <p class="hero-posicao"><em>Medimos antes de mexer. E só prometemos o que o número sustenta.</em></p>
+        </div>
+        <figure class="hero-figura">
+          <div class="hero-moldura">
+            <img class="hero-foto" src="img/hero.webp" width="1600" height="1200" alt="Mesa de trabalho vista de cima: feltro verde-escuro, caderno vinho, uma folha de relatório e uma linha de resultado em verde-menta que sobe, cai e volta a subir." fetchpriority="high">
+          </div>
+          <figcaption class="hero-legenda">
+            <svg class="faisca" viewBox="0 0 120 32" aria-hidden="true" focusable="false"><polyline points="2,22 14,18 26,20 38,12 50,15 62,9 74,14 86,7 98,10 110,4" /><circle cx="110" cy="4" r="2.5" /></svg>
+            <span>Margem de um cliente fictício em 12 meses: subiu, caiu em abril, voltou a subir. Nossos gráficos mostram isso também.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="frentes" class="secao" aria-labelledby="frentes-titulo">
+      <div class="miolo">
+        <div class="secao-cabeca">
+          <h2 id="frentes-titulo">Quatro frentes, uma ordem.</h2>
+          <p class="secao-frase">Isto é o que fazemos e o que você leva de cada etapa. Comece pelo diagnóstico; o resto depende do que ele mostrar.</p>
+        </div>
+        <dl class="frentes">
+          <div class="frente">
+            <dt>
+              <svg class="frente-icone" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="15" /><path d="M20 5v15l10 6" /></svg>
+              <span>Diagnóstico</span>
+            </dt>
+            <dd>
+              <p>Três semanas dentro da sua empresa: conversas com a equipe, leitura dos números e observação da rotina. Saímos com um retrato do que funciona e do que trava.</p>
+              <p class="frente-leva"><strong>Você leva:</strong> um relatório de 12 páginas com prioridades em ordem, e uma reunião para discuti-lo.</p>
+            </dd>
+          </div>
+          <div class="frente">
+            <dt>
+              <svg class="frente-icone" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect x="4" y="8" width="12" height="10" rx="2" /><rect x="24" y="8" width="12" height="10" rx="2" /><rect x="14" y="24" width="12" height="10" rx="2" /><path d="M10 18v6h20v-6M20 24v-6" /></svg>
+              <span>Processos</span>
+            </dt>
+            <dd>
+              <p>Desenhamos com a equipe como cada tarefa deve acontecer, quem faz e o que acontece quando dá errado. Papel, quadro e teste na prática, antes de qualquer sistema.</p>
+              <p class="frente-leva"><strong>Você leva:</strong> os processos escritos, um painel simples de acompanhamento e a equipe treinada nele.</p>
+            </dd>
+          </div>
+          <div class="frente">
+            <dt>
+              <svg class="frente-icone" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M6 30h28" /><path d="M10 30V18M18 30V12M26 30V20M34 30V16" /></svg>
+              <span>Finanças</span>
+            </dt>
+            <dd>
+              <p>Separar o dinheiro da empresa do seu, saber a margem de cada produto, enxergar o caixa dos próximos 90 dias. Nada sofisticado; só o que precisa ser visto todo mês.</p>
+              <p class="frente-leva"><strong>Você leva:</strong> a planilha de margem e caixa montada com seus dados e três fechamentos acompanhados por nós.</p>
+            </dd>
+          </div>
+          <div class="frente">
+            <dt>
+              <svg class="frente-icone" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M6 32 L14 20 L20 26 L34 8" /><path d="M26 8h8v8" /><path d="M6 36h28" /></svg>
+              <span>Crescimento</span>
+            </dt>
+            <dd>
+              <p>Quando a casa está arrumada, ajudamos a escolher onde crescer: nova loja, novo produto, novo canal. Com conta feita e um plano de recuo se a conta não fechar.</p>
+              <p class="frente-leva"><strong>Você leva:</strong> um plano de 12 meses com metas, responsáveis e um encontro mensal de revisão.</p>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="diagnostico" class="secao escuro" aria-labelledby="diag-titulo">
+      <div class="miolo">
+        <div class="secao-cabeca">
+          <h2 id="diag-titulo">Diagnóstico rápido em dez perguntas.</h2>
+          <p class="secao-frase">Marque de 1 (discordo) a 5 (concordo) e veja um radar das cinco áreas da sua empresa. Leva dois minutos e nada sai do seu navegador.</p>
+        </div>
+        <form id="form-diag" class="diag" novalidate>
+          <ol class="diag-lista">
+            <li class="diag-item" data-area="financas">
+              <fieldset>
+                <legend>Sei a margem de cada produto ou serviço que vendo.</legend>
+                <div class="escala" role="group">
+                  <label><input type="radio" name="q1" value="1"><span>1</span></label>
+                  <label><input type="radio" name="q1" value="2"><span>2</span></label>
+                  <label><input type="radio" name="q1" value="3"><span>3</span></label>
+                  <label><input type="radio" name="q1" value="4"><span>4</span></label>
+                  <label><input type="radio" name="q1" value="5"><span>5</span></label>
+                </div>
+                <p class="escala-pontas" aria-hidden="true"><span>Discordo</span><span>Concordo</span></p>
+              </fieldset>
+            </li>
+            <li class="diag-item" data-area="financas">
+              <fieldset>
+                <legend>Fecho o mês sabendo quanto sobrou e para onde o dinheiro foi.</legend>
+                <div class="escala" role="group">
+                  <label><input type="radio" name="q2" value="1"><span>1</span></label>
+                  <label><input type="radio" name="q2" value="2"><span>2</span></label>
+                  <label><input type="radio" name="q2" value="3"><span>3</span></label>
+                  <label><input type="radio" name="q2" value="4"><span>4</span></label>
+                  <label><input type="radio" name="q2" value="5"><span>5</span></label>
+                </div>
+                <p class="escala-pontas" aria-hidden="true"><span>Discordo</span><span>Concordo</span></p>
+              </fieldset>
+            </li>
+            <li class="diag-item" data-area="processos">
+              <fieldset>
+                <legend>As tarefas do dia a dia seguem um padrão, mesmo quando não estou presente.</legend>
+                <div class="escala" role="group">
+                  <label><input type="radio" name="q3" value="1"><span>1</span></label>
+                  <label><input type="radio" name="q3" value="2"><span>2</span></label>
+                  <label><input type="radio" name="q3" value="3"><span>3</span></label>
+                  <label><input type="radio" name="q3" value="4"><span>4</span></label>
+                  <label><input type="radio" name="q3" value="5"><span>5</span></label>
+                </div>
+                <p class="escala-pontas" aria-hidden="true"><span>Discordo</span><span>Concordo</span></p>
+              </fieldset>
+            </li>
+            <li class="diag-item" data-area="processos">
+              <fieldset>
+                <legend>Quando algo dá errado, sabemos em que etapa foi e quem corrige.</legend>
+                <div class="escala" role="group">
+                  <label><input type="radio" name="q4" value="1"><span>1</span></label>
+                  <label><input type="radio" name="q4" value="2"><span>2</span></label>
+                  <label><input type="radio" name="q4" value="3"><span>3</span></label>
+                  <label><input type="radio" name="q4" value="4"><span>4</span></label>
+                  <label><input type="radio" name="q4" value="5"><span>5</span></label>
+                </div>
+                <p class="escala-pontas" aria-hidden="true"><span>Discordo</span><span>Concordo</span></p>
+              </fieldset>
+            </li>
+            <li class="diag-item" data-area="equipe">
+              <fieldset>
+                <legend>Cada pessoa da equipe sabe o que é responsabilidade dela e como será avaliada.</legend>
+                <div class="escala" role="group">
+                  <label><input type="radio" name="q5" value="1"><span>1</span></label>
+                  <label><input type="radio" name="q5" value="2"><span>2</span></label>
+                  <label><input type="radio" name="q5" value="3"><span>3</span></label>
+                  <label><input type="radio" name="q5" value="4"><span>4</span></label>
+                  <label><input type="radio" name="q5" value="5"><span>5</span></label>
+                </div>
+                <p class="escala-pontas" aria-hidden="true"><span>Discordo</span><span>Concordo</span></p>
+              </fieldset>
+            </li>
+            <li class="diag-item" data-area="equipe">
+              <fieldset>
+                <legend>Consigo tirar duas semanas de férias sem a operação parar.</legend>
+                <div class="escala" role="group">
+                  <label><input type="radio" name="q6" value="1"><span>1</span></label>
+                  <label><input type="radio" name="q6" value="2"><span>2</span></label>
+                  <label><input type="radio" name="q6" value="3"><span>3</span></label>
+                  <label><input type="radio" name="q6" value="4"><span>4</span></label>
+                  <label><input type="radio" name="q6" value="5"><span>5</span></label>
+                </div>
+                <p class="escala-pontas" aria-hidden="true"><span>Discordo</span><span>Concordo</span></p>
+              </fieldset>
+            </li>
+            <li class="diag-item" data-area="clientes">
+              <fieldset>
+                <legend>Sei de onde vêm meus clientes e quanto custa conquistar cada um.</legend>
+                <div class="escala" role="group">
+                  <label><input type="radio" name="q7" value="1"><span>1</span></label>
+                  <label><input type="radio" name="q7" value="2"><span>2</span></label>
+                  <label><input type="radio" name="q7" value="3"><span>3</span></label>
+                  <label><input type="radio" name="q7" value="4"><span>4</span></label>
+                  <label><input type="radio" name="q7" value="5"><span>5</span></label>
+                </div>
+                <p class="escala-pontas" aria-hidden="true"><span>Discordo</span><span>Concordo</span></p>
+              </fieldset>
+            </li>
+            <li class="diag-item" data-area="clientes">
+              <fieldset>
+                <legend>Minhas vendas têm um ritmo previsível, não só picos e vales.</legend>
+                <div class="escala" role="group">
+                  <label><input type="radio" name="q8" value="1"><span>1</span></label>
+                  <label><input type="radio" name="q8" value="2"><span>2</span></label>
+                  <label><input type="radio" name="q8" value="3"><span>3</span></label>
+                  <label><input type="radio" name="q8" value="4"><span>4</span></label>
+                  <label><input type="radio" name="q8" value="5"><span>5</span></label>
+                </div>
+                <p class="escala-pontas" aria-hidden="true"><span>Discordo</span><span>Concordo</span></p>
+              </fieldset>
+            </li>
+            <li class="diag-item" data-area="gestao">
+              <fieldset>
+                <legend>Tenho metas para os próximos 12 meses escritas e acompanhadas.</legend>
+                <div class="escala" role="group">
+                  <label><input type="radio" name="q9" value="1"><span>1</span></label>
+                  <label><input type="radio" name="q9" value="2"><span>2</span></label>
+                  <label><input type="radio" name="q9" value="3"><span>3</span></label>
+                  <label><input type="radio" name="q9" value="4"><span>4</span></label>
+                  <label><input type="radio" name="q9" value="5"><span>5</span></label>
+                </div>
+                <p class="escala-pontas" aria-hidden="true"><span>Discordo</span><span>Concordo</span></p>
+              </fieldset>
+            </li>
+            <li class="diag-item" data-area="gestao">
+              <fieldset>
+                <legend>Decido com base em números que olho toda semana, não só na intuição.</legend>
+                <div class="escala" role="group">
+                  <label><input type="radio" name="q10" value="1"><span>1</span></label>
+                  <label><input type="radio" name="q10" value="2"><span>2</span></label>
+                  <label><input type="radio" name="q10" value="3"><span>3</span></label>
+                  <label><input type="radio" name="q10" value="4"><span>4</span></label>
+                  <label><input type="radio" name="q10" value="5"><span>5</span></label>
+                </div>
+                <p class="escala-pontas" aria-hidden="true"><span>Discordo</span><span>Concordo</span></p>
+              </fieldset>
+            </li>
+          </ol>
+          <div class="diag-acoes">
+            <p id="diag-progresso" class="diag-progresso" aria-live="polite">0 de 10 respondidas</p>
+            <p id="diag-erro" class="erro erro-claro" role="alert" hidden>Faltam perguntas. Marque uma resposta em cada uma antes de ver o radar.</p>
+            <button class="botao botao-claro" type="submit">Ver meu radar</button>
+          </div>
+        </form>
+
+        <div id="diag-resultado" class="diag-resultado" hidden aria-live="polite">
+          <div class="radar-caixa">
+            <svg id="radar" class="radar" viewBox="0 0 320 320" role="img" aria-labelledby="radar-desc">
+              <desc id="radar-desc">Radar com cinco eixos: finanças, processos, equipe, clientes e gestão. Os valores estão descritos na lista ao lado.</desc>
+            </svg>
+          </div>
+          <div class="diag-leitura">
+            <h3 class="sub">O que o radar mostra</h3>
+            <ul id="diag-areas" class="diag-areas"></ul>
+            <h3 class="sub">Por onde começar</h3>
+            <ul id="diag-dicas" class="diag-dicas"></ul>
+            <p class="aviso aviso-claro">É um retrato rápido, feito só a partir das suas respostas. Não substitui um diagnóstico de verdade e não promete resultado nenhum. Nada foi enviado nem guardado.</p>
+            <div class="diag-resultado-acoes">
+              <a id="diag-levar" class="botao botao-claro" href="#conversa">Levar o radar para a conversa</a>
+              <button id="diag-refazer" class="botao botao-contorno-claro" type="button">Refazer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="calculadora" class="secao" aria-labelledby="calc-titulo">
+      <div class="miolo calc-grade">
+        <div class="calc-coluna">
+          <div class="secao-cabeca">
+            <h2 id="calc-titulo">Quantas vendas pagam o mês?</h2>
+            <p class="secao-frase">Preencha três números e veja sua margem por venda e o ponto de equilíbrio. Mude um valor e o gráfico acompanha.</p>
+          </div>
+          <form id="form-calc" class="calc" novalidate>
+            <div class="campo">
+              <label for="fixos">Custos fixos do mês (R$)</label>
+              <input id="fixos" name="fixos" type="text" inputmode="decimal" value="18.000" autocomplete="off">
+              <p class="ajuda">Aluguel, salários, contador, energia: o que você paga mesmo sem vender.</p>
+              <p class="erro" id="fixos-erro" hidden></p>
+            </div>
+            <div class="campo">
+              <label for="preco">Preço médio por venda (R$)</label>
+              <input id="preco" name="preco" type="text" inputmode="decimal" value="350" autocomplete="off">
+              <p class="erro" id="preco-erro" hidden></p>
+            </div>
+            <div class="campo">
+              <label for="variavel">Custo variável por venda (R$)</label>
+              <input id="variavel" name="variavel" type="text" inputmode="decimal" value="210" autocomplete="off">
+              <p class="ajuda">Mercadoria, comissão, imposto sobre a venda, frete: o que só existe quando há venda.</p>
+              <p class="erro" id="variavel-erro" hidden></p>
+            </div>
+            <div class="campo">
+              <label for="meta">Lucro que você quer no mês (R$, opcional)</label>
+              <input id="meta" name="meta" type="text" inputmode="decimal" value="8.000" autocomplete="off">
+              <p class="erro" id="meta-erro" hidden></p>
+            </div>
+            <p class="aviso">Conta de referência, com os números que você digitou. Não considera impostos sobre o lucro, sazonalidade nem estoque. Use para conversar, não para decidir sozinho.</p>
+          </form>
+        </div>
+        <div class="calc-coluna calc-resultado" aria-live="polite">
+          <dl class="numeros">
+            <div class="numero">
+              <dt>Margem por venda</dt>
+              <dd><span id="mc-valor" class="numero-grande">R$ 140,00</span><span id="mc-pct" class="numero-apoio">40% do preço</span></dd>
+            </div>
+            <div class="numero">
+              <dt>Ponto de equilíbrio</dt>
+              <dd><span id="pe-vendas" class="numero-grande">129 vendas</span><span id="pe-valor" class="numero-apoio">R$ 45.000,00 de faturamento no mês</span></dd>
+            </div>
+            <div class="numero">
+              <dt>Para o lucro desejado</dt>
+              <dd><span id="meta-vendas" class="numero-grande">186 vendas</span><span id="meta-apoio" class="numero-apoio">57 vendas além do equilíbrio</span></dd>
+            </div>
+          </dl>
+          <p id="calc-aviso" class="erro" role="alert" hidden></p>
+          <figure class="grafico-pe">
+            <svg id="grafico-pe" class="pe" viewBox="0 0 560 320" role="img" aria-labelledby="pe-desc">
+              <desc id="pe-desc">Gráfico de linhas: receita e custo total conforme o número de vendas. Onde as linhas se cruzam é o ponto de equilíbrio. À esquerda do cruzamento há prejuízo; à direita, lucro.</desc>
+            </svg>
+            <figcaption class="legenda-grafico">
+              <span class="leg leg-receita">Receita</span>
+              <span class="leg leg-custo">Custo total</span>
+              <span class="leg leg-prejuizo">Prejuízo</span>
+              <span class="leg leg-lucro">Lucro</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="casos" class="secao papel2" aria-labelledby="casos-titulo">
+      <div class="miolo">
+        <div class="secao-cabeca">
+          <h2 id="casos-titulo">Antes e depois, com os números na mesa.</h2>
+          <p class="secao-frase">Casos fictícios, montados para mostrar como relatamos um trabalho: o que estava acontecendo, o que fizemos e o que mudou, inclusive o que piorou. Filtre pelo setor parecido com o seu.</p>
+        </div>
+        <div class="filtros" role="group" aria-label="Filtrar casos por setor">
+          <button class="filtro" type="button" data-filtro="todos" aria-pressed="true">Todos</button>
+          <button class="filtro" type="button" data-filtro="comercio" aria-pressed="false">Comércio</button>
+          <button class="filtro" type="button" data-filtro="servicos" aria-pressed="false">Serviços</button>
+          <button class="filtro" type="button" data-filtro="industria" aria-pressed="false">Indústria</button>
+          <button class="filtro" type="button" data-filtro="alimentacao" aria-pressed="false">Alimentação</button>
+        </div>
+        <p id="filtro-contagem" class="filtro-contagem" aria-live="polite">6 casos</p>
+        <div id="lista-casos" class="casos"></div>
+      </div>
+    </section>
+
+    <section id="conversa" class="secao" aria-labelledby="conversa-titulo">
+      <div class="miolo conversa-grade">
+        <div class="conversa-texto">
+          <div class="secao-cabeca">
+            <h2 id="conversa-titulo">Uma conversa de 40 minutos, sem compromisso.</h2>
+            <p class="secao-frase">Conte um pouco da empresa e escolha um dia. Nesta demonstração, o pedido aparece resumido na tela e não é enviado a ninguém.</p>
+          </div>
+          <ul class="conversa-lista">
+            <li>Ouvimos o que está travando e perguntamos sobre os números.</li>
+            <li>Dizemos com franqueza se faz sentido trabalharmos juntos.</li>
+            <li>Se fizer, você recebe uma proposta escrita em dois dias úteis.</li>
+          </ul>
+          <address class="conversa-endereco">
+            <strong>Alqueire Consultoria</strong><br>
+            Rua Fictícia, 100, sala 4, Cuiabá, MT<br>
+            (65) 0000-0000 · contato@exemplo.com.br<br>
+            <span class="apoio">Endereço, telefone e e-mail fictícios.</span>
+          </address>
+        </div>
+        <form id="form-conversa" class="conversa" novalidate>
+          <div class="campo">
+            <label for="nome">Seu nome</label>
+            <input id="nome" name="nome" type="text" autocomplete="name" required>
+            <p class="erro" id="nome-erro" hidden></p>
+          </div>
+          <div class="campo">
+            <label for="empresa">Empresa</label>
+            <input id="empresa" name="empresa" type="text" autocomplete="organization" required>
+            <p class="erro" id="empresa-erro" hidden></p>
+          </div>
+          <div class="campo-dupla">
+            <div class="campo">
+              <label for="porte">Quantas pessoas trabalham nela</label>
+              <select id="porte" name="porte" required>
+                <option value="">Escolha</option>
+                <option value="ate5">Até 5</option>
+                <option value="6a20">6 a 20</option>
+                <option value="21a50">21 a 50</option>
+                <option value="51a200">51 a 200</option>
+                <option value="mais200">Mais de 200</option>
+              </select>
+              <p class="erro" id="porte-erro" hidden></p>
+            </div>
+            <div class="campo">
+              <label for="setor">Setor</label>
+              <select id="setor" name="setor" required>
+                <option value="">Escolha</option>
+                <option value="comercio">Comércio</option>
+                <option value="servicos">Serviços</option>
+                <option value="industria">Indústria</option>
+                <option value="alimentacao">Alimentação</option>
+                <option value="outro">Outro</option>
+              </select>
+              <p class="erro" id="setor-erro" hidden></p>
+            </div>
+          </div>
+          <div class="campo-dupla">
+            <div class="campo">
+              <label for="telefone">Telefone com DDD</label>
+              <input id="telefone" name="telefone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(65) 90000-0000" required>
+              <p class="erro" id="telefone-erro" hidden></p>
+            </div>
+            <div class="campo">
+              <label for="email">E-mail</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+              <p class="erro" id="email-erro" hidden></p>
+            </div>
+          </div>
+          <fieldset class="campo">
+            <legend>Dia da conversa</legend>
+            <div id="dias" class="dias" role="radiogroup" aria-label="Próximos dias úteis"></div>
+            <p class="erro" id="dia-erro" hidden></p>
+          </fieldset>
+          <fieldset class="campo">
+            <legend>Horário</legend>
+            <div class="horas">
+              <label><input type="radio" name="hora" value="9h"><span>9h</span></label>
+              <label><input type="radio" name="hora" value="11h"><span>11h</span></label>
+              <label><input type="radio" name="hora" value="14h"><span>14h</span></label>
+              <label><input type="radio" name="hora" value="16h"><span>16h</span></label>
+            </div>
+            <p class="erro" id="hora-erro" hidden></p>
+          </fieldset>
+          <div class="campo">
+            <label for="assunto">O que está travando (opcional)</label>
+            <textarea id="assunto" name="assunto" rows="4"></textarea>
+            <p class="ajuda">Se você fez o diagnóstico acima, pode trazer o radar para cá com um clique.</p>
+          </div>
+          <div class="conversa-acoes">
+            <p id="conversa-erro" class="erro" role="alert" hidden>Faltam dados. Os campos marcados precisam ser corrigidos.</p>
+            <button class="botao" type="submit">Pedir a conversa</button>
+            <p class="apoio">Nada sai do seu navegador. Este site é uma demonstração.</p>
+          </div>
+        </form>
+        <div id="conversa-resumo" class="conversa-resumo" hidden aria-live="polite">
+          <p class="resumo-kicker">Pedido registrado nesta tela</p>
+          <h3 class="sub">Combinado, <span id="res-nome"></span>.</h3>
+          <p class="resumo-protocolo">Referência <span id="res-protocolo"></span></p>
+          <dl class="resumo-dados">
+            <div><dt>Empresa</dt><dd id="res-empresa"></dd></div>
+            <div><dt>Porte</dt><dd id="res-porte"></dd></div>
+            <div><dt>Setor</dt><dd id="res-setor"></dd></div>
+            <div><dt>Quando</dt><dd id="res-quando"></dd></div>
+            <div><dt>Contato</dt><dd id="res-contato"></dd></div>
+            <div class="resumo-largo"><dt>O que está travando</dt><dd id="res-assunto"></dd></div>
+          </dl>
+          <p class="aviso">Em um site de verdade, este pedido iria para a agenda da consultoria e você receberia uma confirmação. Aqui, nada foi enviado e nada ficou guardado.</p>
+          <div class="conversa-acoes">
+            <button id="res-editar" class="botao botao-contorno" type="button">Corrigir dados</button>
+            <button id="res-novo" class="botao" type="button">Novo pedido</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-funciona" class="secao papel2" aria-labelledby="como-titulo">
+      <div class="miolo como">
+        <div class="secao-cabeca">
+          <h2 id="como-titulo">Como isto funciona</h2>
+          <p class="secao-frase">Este site é uma demonstração da Mil e Uma Linhas! para mostrar a uma consultoria o que um site dela pode fazer.</p>
+        </div>
+        <div class="como-colunas">
+          <div>
+            <h3 class="sub">Para quem não é da área</h3>
+            <p>É um site de uma consultoria que não existe. Você responde dez perguntas e vê um radar da sua empresa; digita três números e descobre quantas vendas pagam o mês; lê casos de cliente antes e depois; e marca uma conversa que aparece resumida na tela. Tudo acontece no seu aparelho; nenhuma informação é enviada para ninguém.</p>
+          </div>
+          <div>
+            <h3 class="sub">Por dentro, em linguagem comum</h3>
+            <p>O site é um conjunto de arquivos de texto (a página, o estilo e o comportamento) que o navegador lê e monta. As contas e os gráficos são feitos pelo próprio navegador na hora, com as regras escritas no arquivo de comportamento. Os casos e as perguntas estão escritos nesses arquivos. Não há banco de dados nem servidor nosso; o endereço do site só entrega os arquivos.</p>
+          </div>
+        </div>
+        <details class="tecnico">
+          <summary>Detalhes técnicos</summary>
+          <ul>
+            <li>HTML, CSS e JavaScript puros, sem framework, sem CDN, sem fonte externa e sem analytics. Fontes Newsreader e Manrope (variáveis, OFL) servidas da pasta <code>fonts/</code>.</li>
+            <li><code>Content-Security-Policy</code> em meta tag: <code>default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'none'; form-action 'none'</code>. Sem script inline e sem atributo <code>style</code>; larguras e posições de gráfico são definidas por CSSOM e por atributos SVG.</li>
+            <li>Radar, gráfico de ponto de equilíbrio e barras dos casos são SVG gerados em <code>js/app.js</code> com <code>createElementNS</code>. O radar interpola o polígono com <code>requestAnimationFrame</code>, exceto com <code>prefers-reduced-motion</code>.</li>
+            <li>Os três formulários são interceptados com <code>preventDefault()</code>; nenhum <code>fetch</code> existe e a CSP bloquearia qualquer um. Nada em <code>localStorage</code>, <code>sessionStorage</code> ou cookies.</li>
+            <li>Acessibilidade: <code>lang="pt-BR"</code>, link "pular para o conteúdo", foco visível, contraste AA em todos os pares, <code>aria-pressed</code> nos filtros, <code>aria-live</code> nos resultados, radar com <code>&lt;desc&gt;</code> e leitura em texto ao lado.</li>
+            <li>Testes em <code>tests/site.cjs</code> (Playwright): 1280x900, iPhone 13 e 320px; console limpo, sem rolagem horizontal, sem texto cortado, e as quatro funções exercitadas.</li>
+          </ul>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape escuro">
+    <div class="miolo rodape-linha">
+      <p><strong>Alqueire Consultoria</strong> · Cuiabá, MT. Empresa, pessoas, casos, números, endereço e telefone fictícios.</p>
+      <p>Site de demonstração feito pela <a href="https://mileumalinhas.com.br" rel="noopener">Mil e Uma Linhas!</a>.</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
