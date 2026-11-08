@@ -48,7 +48,7 @@ O estudo completo está em [`docs/identidade.md`](docs/identidade.md).
 - **Paleta:** papel quente `#F3EDE2` e papel escuro `#E6DDCC` de fundo; verde-mata `#16302B` no texto, no cabeçalho e nas seções escuras; terra `#5C5247` nos textos de apoio; menta `#C9E4C5` como único destaque claro, uma vez por tela; vinho `#7A2E3B` como contraponto honesto (o "antes", a área fraca, o prejuízo, os erros). Sem azul-corporativo, sem gradiente, sem sombra em cartão.
 - **Fontes:** Newsreader (serifada de jornal, variável, contraste alto nos títulos) e Manrope (sans geométrica com algarismos tabulares para todos os números). As duas são locais, em `fonts/`, com licença SIL OFL ao lado.
 - **Por quê:** a mesa de quem fecha o mês: papel, a capa verde do livro-caixa, a lombada vinho do caderno e um traço de marca-texto. Os gráficos são o elemento gráfico da marca e são honestos: a linha do hero sobe, cai e volta a subir; o radar mostra o fraco junto do forte; a calculadora mostra a faixa de prejuízo.
-- **Foto do hero:** provisória, gerada com Pillow nas cores da identidade. O prompt para a foto definitiva, 4:3 e 1600px de largura, está no estudo de identidade.
+- **Foto do hero:** foto gerada por IA no Canva (4:3, 1440x1080), feita a partir do prompt do estudo de identidade.
 
 ## Como funciona por dentro
 
@@ -97,7 +97,7 @@ index.html            página única, com âncoras
 css/estilo.css        estilo
 js/app.js             comportamento (menu, diagnóstico, calculadora, casos, conversa)
 fonts/                Newsreader e Manrope (woff2) e licenças
-img/hero.webp         foto provisória do hero (4:3, 1600px)
+img/hero.webp         foto do hero gerada por IA no Canva (4:3, 1440x1080)
 docs/identidade.md    estudo de identidade visual e prompt da foto do hero
 docs/vistoria.md      vistoria de segurança
 docs/*.webp           capturas
