@@ -1,7 +1,8 @@
 /* Alqueire Consultoria: comportamento do site de demonstração.
    Tudo roda no navegador. Nenhum dado sai daqui, nada é guardado.
-   Partes: menu do celular, diagnóstico (radar), calculadora de ponto de equilíbrio,
-   casos antes e depois com filtro, e pedido de conversa com resumo. */
+   Partes: cápsula de navegação e menu do celular, rise reveal, bloom do hero,
+   diagnóstico (radar), calculadora de ponto de equilíbrio, casos antes e depois com filtro,
+   e pedido de conversa com resumo. */
 (function () {
   "use strict";
 
@@ -25,6 +26,87 @@
   const moeda = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" });
   const inteiro = new Intl.NumberFormat("pt-BR", { maximumFractionDigits: 0 });
   const umaCasa = new Intl.NumberFormat("pt-BR", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+
+  /* ---------- Cápsula de navegação: fica mais opaca e com sombra mais funda depois de 40px ---------- */
+  const topo = $(".topo");
+  if (topo) {
+    let agendado = false;
+    const atualizaTopo = () => { topo.classList.toggle("rolado", window.scrollY > 40); agendado = false; };
+    window.addEventListener("scroll", () => { if (!agendado) { agendado = true; requestAnimationFrame(atualizaTopo); } }, { passive: true });
+    atualizaTopo();
+  }
+
+  /* ---------- Rise reveal: blocos sobem 14px ao entrar 12% na tela, 90ms entre irmãos ---------- */
+  (function riseReveal() {
+    const alvos = $$(".secao > .miolo > *, .frente, .caso, .numero");
+    if (!alvos.length) return;
+    alvos.forEach((n) => { if (!n.hasAttribute("hidden")) n.setAttribute("data-rise", ""); });
+    if (movimentoReduzido.matches || !("IntersectionObserver" in window)) {
+      alvos.forEach((n) => n.classList.add("visto"));
+      return;
+    }
+    const io = new IntersectionObserver((entradas) => {
+      /* ordena os que entraram juntos para escalonar 90ms entre irmãos */
+      const vistos = entradas.filter((e) => e.isIntersecting).map((e) => e.target);
+      vistos.forEach((n, i) => {
+        n.style.setProperty("--rise-delay", `${Math.min(i, 8) * 90}ms`);
+        n.classList.add("visto");
+        io.unobserve(n);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -5% 0px" });
+    alvos.forEach((n) => io.observe(n));
+    /* elementos que nascem escondidos (resultado do diagnóstico) entram quando aparecem */
+    const obsHidden = new MutationObserver(() => {
+      $$("[data-rise]:not(.visto)").forEach((n) => { if (!n.closest("[hidden]")) io.observe(n); });
+    });
+    obsHidden.observe(document.body, { attributes: true, subtree: true, attributeFilter: ["hidden"] });
+  })();
+
+  /* ---------- Bloom do hero: mancha radial de Menta a 6% que segue o ponteiro (canvas 2D, sem chuva) ---------- */
+  (function bloom() {
+    const canvas = $("#hero-bloom");
+    const hero = canvas && canvas.closest(".hero");
+    if (!canvas || !hero || movimentoReduzido.matches) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    const toque = window.matchMedia("(pointer: coarse)").matches;
+    let W = 0, H = 0, alvoX = 0, alvoY = 0, posX = 0, posY = 0, quadro = null;
+    function tamanho() {
+      const r = hero.getBoundingClientRect();
+      W = Math.max(1, Math.round(r.width / 2)); H = Math.max(1, Math.round(r.height / 2));
+      canvas.width = W; canvas.height = H;
+      desenha();
+    }
+    function desenha() {
+      ctx.clearRect(0, 0, W, H);
+      const cx = W * 0.38 + posX / 2, cy = H * 0.45 + posY / 2;
+      const raio = Math.max(W, H) * 0.42;
+      const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, raio);
+      g.addColorStop(0, "rgba(201, 228, 197, 0.06)");
+      g.addColorStop(0.5, "rgba(201, 228, 197, 0.035)");
+      g.addColorStop(1, "rgba(201, 228, 197, 0)");
+      ctx.fillStyle = g;
+      ctx.fillRect(0, 0, W, H);
+    }
+    function anima() {
+      posX += (alvoX - posX) * 0.08;
+      posY += (alvoY - posY) * 0.08;
+      desenha();
+      if (Math.abs(alvoX - posX) > 0.2 || Math.abs(alvoY - posY) > 0.2) quadro = requestAnimationFrame(anima);
+      else { quadro = null; posX = alvoX; posY = alvoY; desenha(); }
+    }
+    tamanho();
+    window.addEventListener("resize", tamanho);
+    if (!toque) {
+      hero.addEventListener("pointermove", (e) => {
+        const r = hero.getBoundingClientRect();
+        alvoX = ((e.clientX - r.left) / r.width - 0.5) * 26;
+        alvoY = ((e.clientY - r.top) / r.height - 0.5) * 20;
+        if (!quadro) quadro = requestAnimationFrame(anima);
+      });
+      hero.addEventListener("pointerleave", () => { alvoX = 0; alvoY = 0; if (!quadro) quadro = requestAnimationFrame(anima); });
+    }
+  })();
 
   /* ---------- Menu do celular ---------- */
   const menuBotao = $(".menu-botao");
@@ -159,14 +241,19 @@
 
     const lista = $("#diag-areas");
     lista.textContent = "";
+    const menorValor = Math.min.apply(null, valores);
     valores.forEach((v, i) => {
-      const li = el("li", { class: v <= 50 ? "fraca" : "" });
-      li.appendChild(el("span", null, AREAS[i].nome));
+      /* token card: chave, valor, média de 1 a 5 e barra de sinal; a área mais fraca recebe borda Vinho */
+      const classes = [v <= 50 ? "fraca" : "", v === menorValor ? "mais-fraca" : ""].filter(Boolean).join(" ");
+      const li = el("li", { class: classes });
+      li.appendChild(el("span", { class: "chave" }, AREAS[i].nome));
+      li.appendChild(el("span", { class: "valor" }, `${Math.round(v)}%`));
+      const media = 1 + (v / 100) * 4;
+      li.appendChild(el("span", { class: "media" }, `${umaCasa.format(media)} de 5`));
       const trilho = el("span", { class: "trilho" });
       const barra = el("span", { class: "barra" });
       trilho.appendChild(barra);
       li.appendChild(trilho);
-      li.appendChild(el("span", { class: "valor" }, `${Math.round(v)}%`));
       lista.appendChild(li);
       requestAnimationFrame(() => { barra.style.width = `${Math.max(v, 2)}%`; });
     });
@@ -363,6 +450,16 @@
   /* ---------- Casos antes e depois ---------- */
   const SETORES = { comercio: "Comércio", servicos: "Serviços", industria: "Indústria", alimentacao: "Alimentação" };
   const CASOS = [
+    { setor: "alimentacao", titulo: "Padaria com 3 lojas, 32 pessoas",
+      foto: { src: "img/caso-padaria-balcao.webp", largura: 1456, altura: 970,
+        alt: "Interior de padaria pequena com balcão de madeira clara, vitrine de pães, prateleiras de cerâmica creme e um avental verde-escuro pendurado." },
+      problema: "Desperdício no fim do dia, custo de mercadoria sem controle e lucro que não aparecia.",
+      feito: "Ficha técnica dos 40 produtos, produção por histórico de venda de cada loja e compra centralizada.",
+      metricas: [
+        { nome: "Desperdício", antes: 9, depois: 4, unidade: "%", menorMelhor: true },
+        { nome: "Custo da mercadoria vendida", antes: 42, depois: 36, unidade: "%", menorMelhor: true },
+        { nome: "Margem líquida", antes: 3, depois: 7, unidade: "%" }
+      ], prazo: "7 meses" },
     { setor: "comercio", titulo: "Loja de materiais de construção, 14 pessoas",
       problema: "Estoque alto, prateleira vazia nos itens que mais giram e margem apertada.",
       feito: "Curva ABC do estoque, compra semanal por giro e revisão de preço nos 60 itens principais.",
@@ -387,14 +484,6 @@
         { nome: "Refugo", antes: 6.5, depois: 3.1, unidade: "%", menorMelhor: true },
         { nome: "Custo com pessoal", sub: "subiu: contratamos um planejador", antes: 18, depois: 20, unidade: "%", menorMelhor: true, piorou: true }
       ], prazo: "10 meses" },
-    { setor: "alimentacao", titulo: "Padaria com 3 lojas, 32 pessoas",
-      problema: "Desperdício no fim do dia, custo de mercadoria sem controle e lucro que não aparecia.",
-      feito: "Ficha técnica dos 40 produtos, produção por histórico de venda de cada loja e compra centralizada.",
-      metricas: [
-        { nome: "Desperdício", antes: 9, depois: 4, unidade: "%", menorMelhor: true },
-        { nome: "Custo da mercadoria vendida", antes: 42, depois: 36, unidade: "%", menorMelhor: true },
-        { nome: "Margem líquida", antes: 3, depois: 7, unidade: "%" }
-      ], prazo: "7 meses" },
     { setor: "servicos", titulo: "Clínica odontológica, 6 pessoas",
       problema: "Agenda com buracos, pacientes faltando e recebíveis atrasados.",
       feito: "Confirmação dois dias antes, lista de espera para encaixe e cobrança em etapas combinadas no orçamento.",
@@ -419,18 +508,29 @@
     return `${m.prefixo || ""}${num}${m.unidade}`;
   }
   function montaCasos() {
-    CASOS.forEach((c) => {
+    CASOS.forEach((c, indice) => {
       const art = el("article", { class: "caso", "data-setor": c.setor });
-      art.appendChild(el("p", { class: "caso-setor" }, `${SETORES[c.setor]} · ${c.prazo} de trabalho`));
-      art.appendChild(el("h3", null, c.titulo));
+      /* coluna de texto */
+      const corpo = el("div", { class: "caso-corpo" });
+      corpo.appendChild(el("p", { class: "caso-setor" }, `${SETORES[c.setor]} · ${c.prazo} de trabalho`));
+      corpo.appendChild(el("h3", null, c.titulo));
       const p1 = el("p", { class: "caso-texto" });
       p1.appendChild(el("strong", null, "Antes: "));
       p1.appendChild(document.createTextNode(c.problema));
-      art.appendChild(p1);
+      corpo.appendChild(p1);
       const p2 = el("p", { class: "caso-texto" });
       p2.appendChild(el("strong", null, "O que fizemos: "));
       p2.appendChild(document.createTextNode(c.feito));
-      art.appendChild(p2);
+      corpo.appendChild(p2);
+      corpo.appendChild(el("p", { class: "caso-nota" }, "Caso fictício, montado para demonstrar o formato do relatório."));
+      art.appendChild(corpo);
+      /* painel interno Papel escuro com a foto (só no primeiro caso) e as barras antes e depois */
+      const painel = el("div", { class: "caso-painel" });
+      if (c.foto) {
+        const fig = el("figure", { class: "foto caso-foto" });
+        fig.appendChild(el("img", { src: c.foto.src, width: c.foto.largura, height: c.foto.altura, alt: c.foto.alt, loading: "lazy", decoding: "async" }));
+        painel.appendChild(fig);
+      }
       const ul = el("ul", { class: "metricas" });
       c.metricas.forEach((m) => {
         const li = el("li", { class: "metrica" });
@@ -456,8 +556,8 @@
         li.appendChild(barras);
         ul.appendChild(li);
       });
-      art.appendChild(ul);
-      art.appendChild(el("p", { class: "caso-nota" }, "Caso fictício, montado para demonstrar o formato do relatório."));
+      painel.appendChild(ul);
+      art.appendChild(painel);
       listaCasos.appendChild(art);
     });
     crescerBarras();

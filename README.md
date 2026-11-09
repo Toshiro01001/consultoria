@@ -45,10 +45,22 @@ As capturas do celular de cada função estão em `docs/` com o sufixo `-celular
 O estudo completo está em [`docs/identidade.md`](docs/identidade.md).
 
 - **Nome e frase:** Alqueire Consultoria, "Primeiro a medida. Depois o passo." O alqueire é a medida de terra que todo mundo em Mato Grosso conhece; a marca mede antes de mexer.
-- **Paleta:** papel quente `#F3EDE2` e papel escuro `#E6DDCC` de fundo; verde-mata `#16302B` no texto, no cabeçalho e nas seções escuras; terra `#5C5247` nos textos de apoio; menta `#C9E4C5` como único destaque claro, uma vez por tela; vinho `#7A2E3B` como contraponto honesto (o "antes", a área fraca, o prejuízo, os erros). Sem azul-corporativo, sem gradiente, sem sombra em cartão.
+- **Paleta:** papel quente `#F3EDE2` e papel escuro `#E6DDCC` de fundo; verde-mata `#16302B` no texto, no cabeçalho e nas seções escuras; terra `#5C5247` nos textos de apoio; menta `#C9E4C5` como único destaque claro, uma vez por tela; vinho `#7A2E3B` como contraponto honesto (o "antes", a área fraca, o prejuízo, os erros). Sem azul-corporativo, sem gradiente.
+- **Superfície (leva final):** padrões de dois design systems do catálogo da Mil e Uma Linhas!, em código próprio: o terrasprint-ai nas seções claras (cápsula de navegação fosca flutuante, cartões de papel com sombra tingida, eyebrows em pílula, três pílulas-estádio na calculadora, cartões de caso com painel interno, botões com seta que anda, rise reveal e um bloom verde que segue o ponteiro no hero) e o ix7-mission nas escuras (painéis de vidro no diagnóstico, faixa de status no hero, cartões de token no resultado, controle de segmentos nas respostas e painéis de ação com borda a 27% no diagnóstico e no rodapé). A tabela completa está em `docs/identidade.md`.
 - **Fontes:** Newsreader (serifada de jornal, variável, contraste alto nos títulos) e Manrope (sans geométrica com algarismos tabulares para todos os números). As duas são locais, em `fonts/`, com licença SIL OFL ao lado.
 - **Por quê:** a mesa de quem fecha o mês: papel, a capa verde do livro-caixa, a lombada vinho do caderno e um traço de marca-texto. Os gráficos são o elemento gráfico da marca e são honestos: a linha do hero sobe, cai e volta a subir; o radar mostra o fraco junto do forte; a calculadora mostra a faixa de prejuízo.
-- **Foto do hero:** foto gerada por IA no Canva (4:3, 1440x1080), feita a partir do prompt do estudo de identidade.
+- **Fotos:** todas as fotos do site são geradas por IA no Canva e são ilustrativas: a do hero (4:3, 1440x1080) e as oito da leva final, listadas abaixo. Os arquivos da leva final em `img/` são as fotos finais do Canva, convertidas para webp no nome e na proporção certos.
+
+| Arquivo | Proporção | Onde aparece |
+|---|---|---|
+| `img/mesa-reuniao-papeis.webp` | 16:9 | ao lado do título de "Quatro frentes, uma ordem." |
+| `img/quadro-post-its.webp` | 4:5 | ao lado do título do diagnóstico (só no computador) |
+| `img/frente-diagnostico-trena.webp` | 1:1 | ícone da frente Diagnóstico |
+| `img/frente-processos-fichas.webp` | 1:1 | ícone da frente Processos |
+| `img/frente-financas-planilha.webp` | 1:1 | ícone da frente Finanças |
+| `img/frente-crescimento-muda.webp` | 1:1 | ícone da frente Crescimento |
+| `img/caso-padaria-balcao.webp` | 3:2 | painel do caso da padaria, o primeiro da lista de casos |
+| `img/sala-conversa.webp` | 4:3 | entre a lista e o endereço em "Marcar conversa" |
 
 ## Como funciona por dentro
 
@@ -56,7 +68,7 @@ O site é um conjunto de arquivos de texto que o navegador lê e monta: `index.h
 
 - O **diagnóstico** soma as duas respostas de cada área, transforma em porcentagem (1 vira 0%, 5 vira 100%) e desenha um radar em SVG com cinco eixos. Área com 50% ou menos é marcada como fraca e recebe uma sugestão.
 - A **calculadora** faz margem = preço menos custo variável; ponto de equilíbrio = custos fixos divididos pela margem; vendas para a meta = (custos fixos + meta) divididos pela margem. O gráfico desenha receita e custo total de zero até o dobro do ponto de equilíbrio.
-- Os **casos** estão escritos no próprio `js/app.js`; o filtro só esconde e mostra. As barras são proporcionais ao maior valor de cada par.
+- Os **casos** estão escritos no próprio `js/app.js`; o filtro só esconde e mostra. Cada caso é um cartão de duas colunas (texto de um lado, painel com as barras do outro, lados alternados). As barras são proporcionais ao maior valor de cada par.
 - O **pedido de conversa** gera os dez próximos dias úteis a partir da data do seu aparelho, confere cada campo, formata o telefone e monta o resumo.
 
 ## Detalhes técnicos
@@ -64,8 +76,8 @@ O site é um conjunto de arquivos de texto que o navegador lê e monta: `index.h
 - HTML, CSS e JavaScript puros. Sem framework, sem CDN, sem fonte externa, sem analytics.
 - `Content-Security-Policy` em meta tag: `default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'`. Sem script inline, sem atributo `style`. Larguras por CSSOM; SVG por `createElementNS`.
 - Acessibilidade: `lang="pt-BR"`, link "pular para o conteúdo", foco visível, contraste AA em todos os pares de cor, `aria-pressed` nos filtros, `aria-live` nos resultados, `aria-invalid` e `aria-describedby` nos campos com erro, radar com `<desc>` e leitura em texto ao lado.
-- Movimento: uma abertura orquestrada no hero (título, apoio e foto sobem em sequência), o radar cresce do centro quando é gerado, as barras crescem ao filtrar. Tudo desligado com `prefers-reduced-motion`.
-- Celular primeiro: grade de uma coluna até 760px, menu em botão, escala de respostas e dias em grades de 5 colunas que cabem em 320px.
+- Movimento: uma abertura orquestrada no hero (título, apoio e foto sobem em sequência), um bloom verde em canvas 2D que segue o ponteiro no hero (parado no toque), blocos que sobem 14px ao entrar na tela (`[data-rise]`, IntersectionObserver), a cápsula de navegação que escurece depois de 40px de rolagem, o radar que cresce do centro quando é gerado e as barras que crescem ao filtrar. Tudo desligado com `prefers-reduced-motion`.
+- Celular primeiro: grade de uma coluna até 760px, cápsula com botão redondo que abre uma folha de links, escala de respostas em segmentos de 44px e dias em grade de 5 colunas que cabem em 320px.
 
 ## Como rodar
 
@@ -98,7 +110,8 @@ css/estilo.css        estilo
 js/app.js             comportamento (menu, diagnóstico, calculadora, casos, conversa)
 fonts/                Newsreader e Manrope (woff2) e licenças
 img/hero.webp         foto do hero gerada por IA no Canva (4:3, 1440x1080)
-docs/identidade.md    estudo de identidade visual e prompt da foto do hero
+img/*.webp            as oito fotos da leva final (IA no Canva, ilustrativas)
+docs/identidade.md    estudo de identidade visual, design systems aplicados e prompts das fotos
 docs/vistoria.md      vistoria de segurança
 docs/*.webp           capturas
 tests/site.cjs        testes com Playwright

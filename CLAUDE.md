@@ -12,3 +12,4 @@ Site de demonstração de uma consultoria fictícia de negócios para pequenas e
 - Entregue arquivos soltos, nunca em `.zip`.
 - O repositório é público: não coloque senhas, chaves secretas nem dados pessoais em arquivos versionados.
 - A foto do hero (`img/hero.webp`) é uma foto gerada por IA no Canva, a partir do prompt de `docs/identidade.md`, seção "Foto do hero". Ao trocar, mantenha 4:3 e 1440x1080.
+- As oito fotos da leva final em `img/` (listadas em `docs/identidade.md`, seção "Fotos da leva final") também vêm do Canva; mantenha o nome e a proporção de cada uma ao trocar.

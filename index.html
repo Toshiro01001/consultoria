@@ -24,9 +24,8 @@
           <span class="marca-sub">Negócios medidos · fictício</span>
         </span>
       </a>
-      <button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu">
+      <button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu">
         <span class="menu-botao-linhas" aria-hidden="true"></span>
-        <span class="menu-botao-rotulo">Menu</span>
       </button>
       <nav id="menu" class="menu" aria-label="Seções do site">
         <a href="#frentes">Como trabalhamos</a>
@@ -40,16 +39,17 @@
 
   <main id="conteudo">
     <section id="inicio" class="hero escuro" aria-labelledby="hero-titulo">
+      <canvas id="hero-bloom" class="hero-bloom" aria-hidden="true"></canvas>
       <div class="miolo hero-grade">
         <div class="hero-texto">
           <p class="hero-kicker">Consultoria para pequenas e médias empresas, em Cuiabá</p>
           <h1 id="hero-titulo" class="hero-titulo">Primeiro a <span class="grifo">medida</span>. Depois o passo.</h1>
           <p class="hero-apoio">Somos a Alqueire. Ajudamos empresas de 5 a 200 pessoas a enxergar os próprios números, arrumar o que trava o dia a dia e crescer sem apostar no escuro.</p>
           <div class="hero-acoes">
-            <a class="botao botao-claro" href="#diagnostico">Fazer o diagnóstico rápido</a>
+            <a class="botao botao-claro" href="#diagnostico">Fazer o diagnóstico rápido<span class="botao-seta" aria-hidden="true">→</span></a>
             <a class="botao botao-contorno-claro" href="#conversa">Marcar uma conversa</a>
           </div>
-          <p class="hero-posicao"><em>Medimos antes de mexer. E só prometemos o que o número sustenta.</em></p>
+          <p class="hero-status-linha"><span class="ponto" aria-hidden="true"></span>agenda aberta para conversas de 40 minutos</p>
         </div>
         <figure class="hero-figura">
           <div class="hero-moldura">
@@ -61,18 +61,30 @@
           </figcaption>
         </figure>
       </div>
+      <dl class="miolo hero-status" aria-label="Resumo do trabalho">
+        <div><dt>diagnóstico</dt><dd>3 semanas</dd></div>
+        <div><dt>proposta</dt><dd>2 dias úteis</dd></div>
+        <div><dt>frentes</dt><dd>4</dd></div>
+        <div><dt>empresas</dt><dd>5 a 200 pessoas</dd></div>
+      </dl>
     </section>
 
     <section id="frentes" class="secao" aria-labelledby="frentes-titulo">
       <div class="miolo">
-        <div class="secao-cabeca">
-          <h2 id="frentes-titulo">Quatro frentes, uma ordem.</h2>
-          <p class="secao-frase">Isto é o que fazemos e o que você leva de cada etapa. Comece pelo diagnóstico; o resto depende do que ele mostrar.</p>
+        <div class="secao-topo">
+          <div class="secao-cabeca">
+            <p class="eyebrow">frentes de trabalho</p>
+            <h2 id="frentes-titulo">Quatro frentes, uma ordem.</h2>
+            <p class="secao-frase">Isto é o que fazemos e o que você leva de cada etapa. Comece pelo diagnóstico; o resto depende do que ele mostrar.</p>
+          </div>
+          <figure class="foto frentes-foto">
+            <img src="img/mesa-reuniao-papeis.webp" width="1456" height="816" alt="Mesa de madeira clara com feltro verde-escuro, folhas de relatório desfocadas, caderno vinho e duas mãos adultas apontando um gráfico." loading="lazy" decoding="async">
+          </figure>
         </div>
         <dl class="frentes">
           <div class="frente">
             <dt>
-              <svg class="frente-icone" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="15" /><path d="M20 5v15l10 6" /></svg>
+              <img class="frente-foto" src="img/frente-diagnostico-trena.webp" width="1024" height="1024" alt="Trena de agrimensor de fita amarela desbotada e um caderno quadriculado sobre feltro verde-escuro, vistos de cima." loading="lazy" decoding="async">
               <span>Diagnóstico</span>
             </dt>
             <dd>
@@ -82,7 +94,7 @@
           </div>
           <div class="frente">
             <dt>
-              <svg class="frente-icone" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect x="4" y="8" width="12" height="10" rx="2" /><rect x="24" y="8" width="12" height="10" rx="2" /><rect x="14" y="24" width="12" height="10" rx="2" /><path d="M10 18v6h20v-6M20 24v-6" /></svg>
+              <img class="frente-foto" src="img/frente-processos-fichas.webp" width="1024" height="1024" alt="Fichas de papel kraft ligadas por um fio verde-escuro formando um fluxograma simples sobre uma mesa de madeira clara." loading="lazy" decoding="async">
               <span>Processos</span>
             </dt>
             <dd>
@@ -92,7 +104,7 @@
           </div>
           <div class="frente">
             <dt>
-              <svg class="frente-icone" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M6 30h28" /><path d="M10 30V18M18 30V12M26 30V20M34 30V16" /></svg>
+              <img class="frente-foto" src="img/frente-financas-planilha.webp" width="1024" height="1024" alt="Planilha impressa com colunas desfocadas, uma calculadora de mesa creme e uma caneta verde-escura sobre o caderno vinho." loading="lazy" decoding="async">
               <span>Finanças</span>
             </dt>
             <dd>
@@ -102,7 +114,7 @@
           </div>
           <div class="frente">
             <dt>
-              <svg class="frente-icone" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M6 32 L14 20 L20 26 L34 8" /><path d="M26 8h8v8" /><path d="M6 36h28" /></svg>
+              <img class="frente-foto" src="img/frente-crescimento-muda.webp" width="1024" height="1024" alt="Muda verde em vaso de cerâmica creme apoiada sobre um livro-caixa fechado de capa verde-escura, com uma régua de madeira ao lado." loading="lazy" decoding="async">
               <span>Crescimento</span>
             </dt>
             <dd>
@@ -116,9 +128,15 @@
 
     <section id="diagnostico" class="secao escuro" aria-labelledby="diag-titulo">
       <div class="miolo">
-        <div class="secao-cabeca">
-          <h2 id="diag-titulo">Diagnóstico rápido em dez perguntas.</h2>
-          <p class="secao-frase">Marque de 1 (discordo) a 5 (concordo) e veja um radar das cinco áreas da sua empresa. Leva dois minutos e nada sai do seu navegador.</p>
+        <div class="secao-topo secao-topo-diag">
+          <div class="secao-cabeca">
+            <p class="eyebrow">diagnóstico</p>
+            <h2 id="diag-titulo">Diagnóstico rápido em dez perguntas.</h2>
+            <p class="secao-frase">Marque de 1 (discordo) a 5 (concordo) e veja um radar das cinco áreas da sua empresa. Leva dois minutos e nada sai do seu navegador.</p>
+          </div>
+          <figure class="foto diag-foto">
+            <img src="img/quadro-post-its.webp" width="1088" height="1360" alt="Quadro branco com post-its em verde-menta, creme e vinho organizados em cinco colunas, e uma mão adulta colando um deles." loading="lazy" decoding="async">
+          </figure>
         </div>
         <form id="form-diag" class="diag" novalidate>
           <ol class="diag-lista">
@@ -256,7 +274,7 @@
           <div class="diag-acoes">
             <p id="diag-progresso" class="diag-progresso" aria-live="polite">0 de 10 respondidas</p>
             <p id="diag-erro" class="erro erro-claro" role="alert" hidden>Faltam perguntas. Marque uma resposta em cada uma antes de ver o radar.</p>
-            <button class="botao botao-claro" type="submit">Ver meu radar</button>
+            <button class="botao botao-claro" type="submit">Ver meu radar<span class="botao-seta" aria-hidden="true">→</span></button>
           </div>
         </form>
 
@@ -273,7 +291,7 @@
             <ul id="diag-dicas" class="diag-dicas"></ul>
             <p class="aviso aviso-claro">É um retrato rápido, feito só a partir das suas respostas. Não substitui um diagnóstico de verdade e não promete resultado nenhum. Nada foi enviado nem guardado.</p>
             <div class="diag-resultado-acoes">
-              <a id="diag-levar" class="botao botao-claro" href="#conversa">Levar o radar para a conversa</a>
+              <a id="diag-levar" class="botao botao-claro" href="#conversa">Levar o radar para a conversa<span class="botao-seta" aria-hidden="true">→</span></a>
               <button id="diag-refazer" class="botao botao-contorno-claro" type="button">Refazer</button>
             </div>
           </div>
@@ -285,6 +303,7 @@
       <div class="miolo calc-grade">
         <div class="calc-coluna">
           <div class="secao-cabeca">
+            <p class="eyebrow">calculadora</p>
             <h2 id="calc-titulo">Quantas vendas pagam o mês?</h2>
             <p class="secao-frase">Preencha três números e veja sua margem por venda e o ponto de equilíbrio. Mude um valor e o gráfico acompanha.</p>
           </div>
@@ -348,6 +367,7 @@
     <section id="casos" class="secao papel2" aria-labelledby="casos-titulo">
       <div class="miolo">
         <div class="secao-cabeca">
+          <p class="eyebrow">casos</p>
           <h2 id="casos-titulo">Antes e depois, com os números na mesa.</h2>
           <p class="secao-frase">Casos fictícios, montados para mostrar como relatamos um trabalho: o que estava acontecendo, o que fizemos e o que mudou, inclusive o que piorou. Filtre pelo setor parecido com o seu.</p>
         </div>
@@ -367,6 +387,7 @@
       <div class="miolo conversa-grade">
         <div class="conversa-texto">
           <div class="secao-cabeca">
+            <p class="eyebrow">conversa</p>
             <h2 id="conversa-titulo">Uma conversa de 40 minutos, sem compromisso.</h2>
             <p class="secao-frase">Conte um pouco da empresa e escolha um dia. Nesta demonstração, o pedido aparece resumido na tela e não é enviado a ninguém.</p>
           </div>
@@ -375,6 +396,9 @@
             <li>Dizemos com franqueza se faz sentido trabalharmos juntos.</li>
             <li>Se fizer, você recebe uma proposta escrita em dois dias úteis.</li>
           </ul>
+          <figure class="foto conversa-foto">
+            <img src="img/sala-conversa.webp" width="1456" height="1088" alt="Sala de reunião pequena com mesa redonda de madeira clara, duas cadeiras, duas xícaras de café, um caderno vinho e janela com luz de manhã." loading="lazy" decoding="async">
+          </figure>
           <address class="conversa-endereco">
             <strong>Alqueire Consultoria</strong><br>
             Rua Fictícia, 100, sala 4, Cuiabá, MT<br>
@@ -453,7 +477,7 @@
           </div>
           <div class="conversa-acoes">
             <p id="conversa-erro" class="erro" role="alert" hidden>Faltam dados. Os campos marcados precisam ser corrigidos.</p>
-            <button class="botao" type="submit">Pedir a conversa</button>
+            <button class="botao" type="submit">Pedir a conversa<span class="botao-seta" aria-hidden="true">→</span></button>
             <p class="apoio">Nada sai do seu navegador. Este site é uma demonstração.</p>
           </div>
         </form>
@@ -481,6 +505,7 @@
     <section id="como-funciona" class="secao papel2" aria-labelledby="como-titulo">
       <div class="miolo como">
         <div class="secao-cabeca">
+          <p class="eyebrow">como funciona</p>
           <h2 id="como-titulo">Como isto funciona</h2>
           <p class="secao-frase">Este site é uma demonstração da Mil e Uma Linhas! para mostrar a uma consultoria o que um site dela pode fazer.</p>
         </div>
@@ -510,9 +535,23 @@
   </main>
 
   <footer class="rodape escuro">
-    <div class="miolo rodape-linha">
-      <p><strong>Alqueire Consultoria</strong> · Cuiabá, MT. Empresa, pessoas, casos, números, endereço e telefone fictícios.</p>
-      <p>Site de demonstração feito pela <a href="https://mileumalinhas.com.br" rel="noopener">Mil e Uma Linhas!</a>.</p>
+    <div class="miolo">
+      <div class="rodape-painel">
+        <div class="rodape-topo">
+          <p class="rodape-posicao"><em>Medimos antes de mexer. E só prometemos o que o número sustenta.</em></p>
+          <nav class="rodape-menu" aria-label="Seções do site, no rodapé">
+            <a href="#frentes">Como trabalhamos</a>
+            <a href="#diagnostico">Diagnóstico</a>
+            <a href="#calculadora">Calculadora</a>
+            <a href="#casos">Casos</a>
+            <a href="#conversa">Marcar conversa</a>
+          </nav>
+        </div>
+        <div class="rodape-linha">
+          <p><strong>Alqueire Consultoria</strong> · Cuiabá, MT. Empresa, pessoas, casos, números, endereço e telefone fictícios.</p>
+          <p>Site de demonstração feito pela <a href="https://mileumalinhas.com.br" rel="noopener">Mil e Uma Linhas!</a>.</p>
+        </div>
+      </div>
     </div>
   </footer>
 
